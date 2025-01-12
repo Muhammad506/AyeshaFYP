@@ -1,6 +1,16 @@
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+
 const Register = () => {
     return (
         <main className="flex flex-col lg:flex-row font-inter  bg-gradient-to-br from-[#79A3FF] to-[#A8D8F0]">
+            {/* Back Button */}
+            <Link to="/">
+                <div className="absolute top-6 left-6 flex z-50 items-center gap-2 text-[#003C60] font-bold text-lg bg-white px-4 py-2 rounded-full shadow-md hover:bg-[#003C60] hover:text-white transition-all duration-500 ease-in-out cursor-pointer">
+                    <FaArrowLeft />
+                    <span>Back</span>
+                </div>
+            </Link>
             {/* Left Section - Image */}
             <div className="w-full lg:w-[60%] bg-cover bg-center max-h-screen relative rounded-l-3xl">
                 <img
@@ -90,12 +100,12 @@ const Register = () => {
                     </form>
                     <p className="text-center font-medium text-sm text-[#003C60] mt-2">
                         Already have an account?{" "}
-                        <a
-                            href="#"
+                        <Link
+                            to="/login"
                             className="text-[#003C60] font-semibold hover:underline"
                         >
                             Login
-                        </a>
+                        </Link>
                     </p>
                 </div>
             </div>

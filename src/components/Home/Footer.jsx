@@ -1,4 +1,5 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'; // Import social media icons
+import { Link } from "react-router-dom";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -6,12 +7,9 @@ const Footer = () => {
       <div className="container mx-auto px-6 text-center grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Grid 1: Logo and Website Details */}
         <div className="flex flex-col items-center">
-          {/* <img
-            src="/logo.svg" // Replace with your logo path
-            alt="Logo"
-            className="w-40 lg:w-48 object-contain mb-4" // Adjust size for responsiveness
-          /> */}
-          <span className='text-center font-extrabold flex justify-center items-center text-3xl'>LOGO</span>
+          <span className="text-center font-extrabold flex justify-center items-center text-3xl">
+            LOGO
+          </span>
           <p className="text-sm text-gray-900 mt-2">
             FYP Portal - Your trusted platform for solar energy solutions
           </p>
@@ -19,18 +17,21 @@ const Footer = () => {
 
         {/* Grid 2: Links Section */}
         <div className="flex flex-col items-center space-y-4">
-          <a href="#home" className="hover:text-gray-200 text-lg font-semibold transition duration-300">
+          <Link to="/" className="hover:text-gray-200 text-lg font-semibold transition duration-300">
             Home
-          </a>
-          <a href="#about" className="hover:text-gray-200 text-lg font-semibold transition duration-300">
+          </Link>
+          <Link to="/about" className="hover:text-gray-200 text-lg font-semibold transition duration-300">
             About
-          </a>
-          <a href="#features" className="hover:text-gray-200 text-lg font-semibold transition duration-300">
+          </Link>
+          <Link to="/features" className="hover:text-gray-200 text-lg font-semibold transition duration-300">
             Features
-          </a>
-          <a href="#contact" className="hover:text-gray-200 text-lg font-semibold transition duration-300">
+          </Link>
+          <Link to="/contact" className="hover:text-gray-200 text-lg font-semibold transition duration-300">
             Contact
-          </a>
+          </Link>
+          <Link to="/dashboard" className="hover:text-gray-200 text-lg font-semibold transition duration-300">
+            Dashboard
+          </Link>
         </div>
 
         {/* Grid 3: Contact Info Section */}
@@ -44,6 +45,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-3xl hover:text-blue-400 transition duration-300"
+              aria-label="Facebook"
             >
               <FaFacebook />
             </a>
@@ -52,6 +54,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-3xl hover:text-blue-400 transition duration-300"
+              aria-label="Twitter"
             >
               <FaTwitter />
             </a>
@@ -60,6 +63,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-3xl hover:text-blue-400 transition duration-300"
+              aria-label="Instagram"
             >
               <FaInstagram />
             </a>
@@ -68,6 +72,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-3xl hover:text-blue-400 transition duration-300"
+              aria-label="LinkedIn"
             >
               <FaLinkedin />
             </a>
@@ -77,7 +82,7 @@ const Footer = () => {
       <hr className="border-t border-gray-500 my-8 w-2/3 mx-auto" />
       {/* Copyright Section */}
       <div className="text-center text-sm text-gray-900 mt-8">
-        <p>&copy; 2025 FYP Portal. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} FYP Portal. All rights reserved.</p>
       </div>
     </footer>
   );

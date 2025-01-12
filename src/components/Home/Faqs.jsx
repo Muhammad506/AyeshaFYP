@@ -16,67 +16,68 @@ const FAQs = () => {
     };
 
     return (
-        <section id="faqs" className="font-inter py-12 ">
-            <div className="container mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-12">
-                {/* Left Side (Image) */}
-                <div className="w-full md:w-1/2 flex justify-center md:justify-start">
+        <section id="faqs" className="py-6 bg-white px-2 font-inter">
+            {/* Header Section */}
+            <div className="text-center mb-10">
+                <h1 className="text-lg lg:text-xl font-semibold uppercase mb-4 text-blue-600">
+                    FAQs
+                </h1>
+                <h2 className="text-2xl lg:text-3xl xl:text-4xl font-semibold max-w-sm lg:max-w-md xl:max-w-xl mx-auto text-gray-900">
+                    Explore Our FAQ Section for Helpful Information
+                </h2>
+            </div>
+
+            {/* Content Section */}
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between px-6 lg:px-24">
+                {/* Left Section - Image */}
+                <div className="w-full lg:w-1/2 mt-8 md:-mt-6 ">
                     <img
                         src="FAQ.svg"
-                        alt="FAQ Illustration"
-                        className="w-full max-w-md md:max-w-full object-contain"
-                        loading="lazy"
+                        alt="FAQ illustration"
+                        className="w-full max-w-md mx-auto"
                     />
                 </div>
 
-                {/* Right Side (FAQ Content) */}
-                <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
-                    <h2 className="text-4xl font-extrabold text-center md:text-left text-gray-800 mb-6">
-                        Frequently Asked Questions
-                    </h2>
-                    <p className="text-lg text-center md:text-left text-gray-600 mb-8">
-                        Find answers to some of the most common questions about our platform.
-                    </p>
-                    <div className="w-full space-y-2">
-                        {faqs.map((faq, index) => (
-                            <div
-                                key={index}
-                                className="bg-white rounded-lg shadow-lg border border-gray-200 transition-transform duration-300 hover:scale-[1.02]"
+                {/* Right Section - FAQ List */}
+                <div className="w-full lg:w-1/2 md:px-6 lg:px-16 space-y-3">
+                    {faqs.map((faq, index) => (
+                        <div
+                            key={index}
+                            className="bg-white border border-gray-300 rounded-lg shadow-sm overflow-hidden"
+                        >
+                            <button
+                                className="flex justify-between items-center w-full px-4 py-3 text-left text-gray-800 font-semibold text-lg focus:outline-none hover:bg-blue-100 transition-all"
+                                onClick={() => toggleAnswer(index)}
+                                aria-expanded={activeIndex === index}
+                                aria-controls={`faq-${index}`}
                             >
-                                <div
-                                    className="flex justify-between items-center px-6 py-4 cursor-pointer hover:bg-blue-100"
-                                    onClick={() => toggleAnswer(index)}
-                                    aria-expanded={activeIndex === index}
-                                    aria-controls={`faq-${index}`}
+                                {faq.question}
+                                <svg
+                                    className={`w-6 h-6 transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : ''
+                                        }`}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
                                 >
-                                    <h3 className="text-lg font-semibold text-gray-800">{faq.question}</h3>
-                                    <svg
-                                        className={`w-6 h-6 transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : ''}`}
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M19 9l-7 7-7-7"
-                                        />
-                                    </svg>
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M19 9l-7 7-7-7"
+                                    />
+                                </svg>
+                            </button>
+                            {activeIndex === index && (
+                                <div
+                                    id={`faq-${index}`}
+                                    className="px-4 py-3 text-gray-600 bg-blue-50"
+                                >
+                                    {faq.answer}
                                 </div>
-
-                                {/* Answer Section */}
-                                {activeIndex === index && (
-                                    <div
-                                        id={`faq-${index}`}
-                                        className="px-6 py-4 text-gray-700 text-sm bg-blue-50 rounded-b-lg transition-all duration-300"
-                                    >
-                                        {faq.answer}
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
+                            )}
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

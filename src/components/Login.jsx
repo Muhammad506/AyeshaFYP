@@ -1,6 +1,17 @@
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+
 const Login = () => {
     return (
         <main className="flex flex-col lg:flex-row font-inter h-screen bg-gradient-to-br from-[#79A3FF] to-[#A8D8F0]">
+            {/* Back Button */}
+            <Link to="/">
+                <div className="absolute top-6 left-6 flex z-50 items-center gap-2 text-[#003C60] font-bold text-lg bg-white px-4 py-2 rounded-full shadow-md hover:bg-[#003C60] hover:text-white transition-all duration-500 ease-in-out cursor-pointer">
+                    <FaArrowLeft />
+                    <span>Back</span>
+                </div>
+            </Link>
+
             {/* Left Section - Image */}
             <div className="w-full lg:w-[60%] bg-cover bg-center relative rounded-l-3xl">
                 <img
@@ -29,7 +40,7 @@ const Login = () => {
                                 <input
                                     type="email"
                                     placeholder="Enter your email"
-                                    className="w-full px-4 py-3 border-2 border-[#003C60] rounded-lg shadow-sm   focus:outline-none"
+                                    className="w-full px-4 py-3 border-2 border-[#003C60] rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#3F7AFF]"
                                 />
                                 <span className="absolute left-3 top-3 text-gray-400">
                                     <i className="fas fa-envelope"></i>
@@ -44,7 +55,7 @@ const Login = () => {
                                 <input
                                     type="password"
                                     placeholder="Enter your password"
-                                    className="w-full px-4 py-3 border-2 border-[#003C60] rounded-lg shadow-sm focus:outline-none"
+                                    className="w-full px-4 py-3 border-2 border-[#003C60] rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#3F7AFF]"
                                 />
                                 <span className="absolute left-3 top-3 text-gray-400">
                                     <i className="fas fa-lock"></i>
@@ -68,12 +79,12 @@ const Login = () => {
                     </form>
                     <p className="text-center font-medium text-sm text-[#003C60] mt-4">
                         Don’t have an account?{" "}
-                        <a
-                            href="#"
+                        <Link
+                            to="/register"
                             className="text-[#003C60] font-semibold hover:underline"
                         >
                             Register
-                        </a>
+                        </Link>
                     </p>
                 </div>
             </div>

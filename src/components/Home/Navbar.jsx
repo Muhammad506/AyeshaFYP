@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation(); // To track the active link
+
+    const isActive = (path) => location.pathname === path ? "text-blue-600 underline" : "text-black hover:text-white";
 
     return (
         <nav className="bg-gradient-to-br border-b fixed z-50 w-full border-black from-[#79A3FF] to-[#A8D8F0] shadow-lg">
@@ -17,25 +20,25 @@ const Navbar = () => {
                     <div className="hidden md:flex space-x-8 items-center">
                         <Link
                             to="/"
-                            className="text-black font-medium hover:text-white transition duration-300"
+                            className={`font-medium transition duration-300 ${isActive("/")}`}
                         >
                             Home
                         </Link>
                         <Link
                             to="/about"
-                            className="text-black font-medium hover:text-white transition duration-300"
+                            className={`font-medium transition duration-300 ${isActive("/about")}`}
                         >
                             About
                         </Link>
                         <Link
                             to="/services"
-                            className="text-black font-medium hover:text-white transition duration-300"
+                            className={`font-medium transition duration-300 ${isActive("/services")}`}
                         >
                             Services
                         </Link>
                         <Link
                             to="/contact"
-                            className="text-black font-medium hover:text-white transition duration-300"
+                            className={`font-medium transition duration-300 ${isActive("/contact")}`}
                         >
                             Contact
                         </Link>
@@ -43,7 +46,7 @@ const Navbar = () => {
                         <div className="ml-6 space-x-4">
                             <Link to="/login">
                                 <button
-                                    className="relative px-5 py-2 bg-white border-2 border-blue-600 text-blue-600 font-semibold  rounded-lg overflow-hidden shadow-md transition-all duration-700 ease-in-out hover:shadow-lg hover:text-white group"
+                                    className="relative px-5 py-2 bg-white border-2 border-blue-600 text-blue-600 font-semibold rounded-lg overflow-hidden shadow-md transition-all duration-700 ease-in-out hover:shadow-lg hover:text-white group"
                                 >
                                     <span
                                         className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-in-out origin-center"
@@ -57,7 +60,7 @@ const Navbar = () => {
                             </Link>
                             <Link to="/register">
                                 <button
-                                    className="relative px-5 py-2 text-white   bg-gradient-to-r from-blue-600 to-blue-700 border-2 border-blue-600  font-semibold  rounded-lg overflow-hidden shadow-md transition-all duration-700 ease-in-out hover:shadow-lg hover:text-white group"
+                                    className="relative px-5 py-2 text-white bg-gradient-to-r from-blue-600 to-blue-700 border-2 border-blue-600 font-semibold rounded-lg overflow-hidden shadow-md transition-all duration-700 ease-in-out hover:shadow-lg hover:text-white group"
                                 >
                                     <span
                                         className="absolute inset-0 transform bg-white scale-x-0 text-blue-600 group-hover:scale-x-100 transition-transform duration-700 ease-in-out origin-center"
@@ -111,25 +114,25 @@ const Navbar = () => {
                 <div className="md:hidden bg-gradient-to-br from-[#79A3FF] to-[#A8D8F0] shadow-inner">
                     <Link
                         to="/"
-                        className="block px-6 py-3 text-white font-medium hover:bg-blue-600 transition duration-300"
+                        className={`block px-6 py-3 font-medium transition duration-300 ${isActive("/")}`}
                     >
                         Home
                     </Link>
                     <Link
                         to="/about"
-                        className="block px-6 py-3 text-white font-medium hover:bg-blue-600 transition duration-300"
+                        className={`block px-6 py-3 font-medium transition duration-300 ${isActive("/about")}`}
                     >
                         About
                     </Link>
                     <Link
                         to="/services"
-                        className="block px-6 py-3 text-white font-medium hover:bg-blue-600 transition duration-300"
+                        className={`block px-6 py-3 font-medium transition duration-300 ${isActive("/services")}`}
                     >
                         Services
                     </Link>
                     <Link
                         to="/contact"
-                        className="block px-6 py-3 text-white font-medium hover:bg-blue-600 transition duration-300"
+                        className={`block px-6 py-3 font-medium transition duration-300 ${isActive("/contact")}`}
                     >
                         Contact
                     </Link>

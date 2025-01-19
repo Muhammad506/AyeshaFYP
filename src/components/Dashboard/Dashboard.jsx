@@ -2,7 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Welcome from "./Welcome";
 import ExamManagement from "./Exam/ExamManagement";
-// import CreateTest from "./Exam/CreateTest";
+import CreateQuestions from "./Exam/CreateQuestions";
+
 
 const Dashboard = () => {
     return (
@@ -14,7 +15,7 @@ const Dashboard = () => {
                 <Routes>
                     <Route index element={<Welcome />} />
                     <Route path="exam-management" element={<ExamManagement />} />
-                    {/* <Route path="create-test" element={<CreateTest />} /> */}
+                    <Route path="create-questions" element={<CreateQuestions />} />
                 </Routes>
             </div>
         </div>
